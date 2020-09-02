@@ -1,0 +1,38 @@
+// Getting input via STDIN
+const readline = require("readline");
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+  userInput.push(data);
+});
+
+inp.on("close", () => {
+  //start-here
+  //Your code goes here … replace the below line with your code logic 
+
+  /*
+  Write a program to find all of the roots of the quadratic.
+  */
+  let x = userInput[0].split(' ');
+  a = +x[0];
+  b = +x[1]; 
+  c = +x[2]; 
+  
+
+  
+  let k = Math.sqrt(b*b - 4*a*c); 
+  
+  
+  let s1 = (-b + k)/(2*a);
+  console.log(s1.toFixed(2));
+  
+  let s2 = (-b - k)/(2*a);
+  console.log(s2.toFixed(2));
+
+  //end-here
+});
