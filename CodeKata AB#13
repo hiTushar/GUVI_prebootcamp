@@ -1,0 +1,32 @@
+// Getting input via STDIN
+const readline = require("readline");
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+  userInput.push(data);
+});
+
+inp.on("close", () => {
+  //start-here
+  //Your code goes here … replace the below line with your code logic 
+
+  /*
+  You are given with Principle amount($), Interest Rate(%) and Time (years) in that order. Find Simple Interest.
+
+Print the output up to two decimal places (Round-off if necessary).
+  */
+  var x = userInput[0].split(" "); 
+  p = +x[0];
+  r = +x[1];
+  t = +x[2]; 
+  
+  i = (p*r*t)/100;
+  console.log(i.toFixed(2)); 
+
+  //end-here
+});
