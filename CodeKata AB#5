@@ -1,0 +1,36 @@
+// Getting input via STDIN
+const readline = require("readline");
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+  userInput.push(data);
+});
+
+inp.on("close", () => {
+  //start-here
+  //Your code goes here … replace the below line with your code logic 
+    
+  /*
+  
+  You are given three numbers A, B & C. Print the largest amongst these three numbers.
+  
+  */
+  // console.log(userInput)
+  var x = userInput;
+  
+  var max = x[0];
+  
+  if(x[1] > max)    max = x[1]; 
+  
+  if(x[2] > max)    max = x[2]; 
+  
+  console.log(max);
+  
+
+  //end-here
+});
