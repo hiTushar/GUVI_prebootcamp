@@ -1,0 +1,44 @@
+// Getting input via STDIN
+const readline = require("readline");
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+  userInput.push(data);
+});
+
+inp.on("close", () => {
+  //start-here
+  //Your code goes here … replace the below line with your code logic 
+
+  /*
+    Using the method of looping, write a program to print the table of 9 till N in the format as follows:
+    (N is input by the user)
+    
+    9 18 27...
+    
+    Print NULL if 0 is input
+
+  */
+  var N = parseInt(userInput[0]);
+  var product = 0; 
+  var s = "";
+  
+  for(var i = 1; i <= N; i++){
+    product = 9 * i;  
+    // s = s + String(product) + " "; 
+    if(i !== 1) s += " "; // this way, whitespace is not added before the first element and after the last element
+    s = s + String(product); 
+  }
+
+  if(s.length === 0) 
+    console.log("NULL");
+  else 
+    console.log(s); 
+  
+  //end-here
+});
