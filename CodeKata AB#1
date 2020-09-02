@@ -1,0 +1,33 @@
+// Getting input via STDIN
+const readline = require("readline");
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+  userInput.push(data);
+});
+
+inp.on("close", () => {
+  //start-here
+  //Your code goes here … replace the below line with your code logic 
+
+  /* 
+  You are provided with a number, "N". Find its factorial.
+  */
+  
+  var factorial = 1;
+  
+  var x = parseInt(userInput);
+ 
+  while(x>1){
+    factorial = factorial * x;
+    x = x - 1; 
+  }
+  console.log(factorial); 
+
+  //end-here
+});
