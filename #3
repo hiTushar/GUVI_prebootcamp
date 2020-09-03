@@ -1,0 +1,59 @@
+// Getting input via STDIN
+const readline = require("readline");
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+  userInput.push(data);
+});
+
+inp.on("close", () => {
+  //start-here
+  //Your code goes here … replace the below line with your code logic 
+
+  /*
+  find co-primes: HCF = 1 
+  
+  divide greater by smaller, keep the remainder; 
+  divide the smaller by this remaider; 
+  repeat till the remainder is zero
+  the last divisor is HCF. 
+  
+  */
+  
+  let x = userInput[0].split(' '); 
+  
+  let m = +x[0];
+  let n = +x[1];
+  
+  let divisor, dividend, remainder, hcf = 0; 
+  
+  if(m < n){
+      divisor = m; 
+      dividend = n; 
+  }
+  else{
+      divisor = n; 
+      dividend = m; 
+  }
+  
+  while(divisor !== 0){
+      remainder = dividend % divisor;  
+      hcf = divisor; 
+      
+      // for the next iteration 
+      dividend = divisor;
+      divisor = remainder; 
+  }
+  
+  
+  hcf === 1 ? console.log(1) : console.log(0); 
+  
+  
+
+  //end-here
+});
