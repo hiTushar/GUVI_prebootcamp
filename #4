@@ -1,0 +1,50 @@
+// Getting input via STDIN
+const readline = require("readline");
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+  userInput.push(data);
+});
+
+inp.on("close", () => {
+  //start-here
+  //Your code goes here … replace the below line with your code logic 
+
+  /*
+  You are provided with a number ’n’. Your task is to tell whether that number is saturated. A saturated number is a number which is made by exactly two digits.
+
+  */
+  
+  //console.log(userInput);
+  
+  let x = userInput[0]; 
+
+  let c1 = x[0], c2 = x[0];
+  
+  //console.log(char); 
+  
+  let count = 1;  // atleast one distinct character 
+  
+  
+  
+  for(let i = 1; i < x.length; i++){
+    if(x[i] !== c1){ 
+        if(x[i] !== c2){
+            count++;
+            if(count === 2) c2 = x[i]; // second distinct character
+        }
+    }
+    
+    if(count>2) // if more than two distinct characters are found. In case of only one distinct character, one cannot be sure till the last character. 
+        break;
+  }
+  
+  count === 2 ? console.log('Saturated') : console.log('Unsaturated');
+
+  //end-here
+});
