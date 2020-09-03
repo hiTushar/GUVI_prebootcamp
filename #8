@@ -1,0 +1,41 @@
+// Getting input via STDIN
+const readline = require("readline");
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+  userInput.push(data);
+});
+
+inp.on("close", () => {
+  //start-here
+  //Your code goes here … replace the below line with your code logic 
+
+  /*
+    Finding No. for which t^3 + (t+1)^3 = No.   
+  */
+  
+    let x = userInput[1].split(' ');
+    
+    let collect = []; 
+    
+    for(let i = 0; i < x.length; i++){
+        for(let t = 1; Math.pow(t+1, 3) <= +x[i]; t++){ // check till the sum or just the greatest of the two cubes is less the No. in question
+            let s = Math.pow(t, 3) + Math.pow(t+1, 3); 
+            if (s === +x[i]){
+                collect.push(+x[i]); // store the finest No. 
+                break; 
+            }
+        }
+    }
+    
+    collect.sort((a, b) => a - b); 
+    
+    console.log(collect.join(' '));
+    
+  //end-here
+});
