@@ -1,1 +1,1 @@
-# GUVI_prebootcamp is has other branches w/ CodeKata problems
+# GUVI_prebootcamp has other branches w/ CodeKata problems
