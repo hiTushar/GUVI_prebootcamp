@@ -1,0 +1,45 @@
+// Getting input via STDIN
+const readline = require("readline");
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+  userInput.push(data);
+});
+
+inp.on("close", () => {
+  //start-here
+  //Your code goes here … replace the below line with your code logic 
+
+  /*
+  You are given with an circular array .Your task is calculate the difference between two consecutive number. And if difference is greater than ‘k’, print 1 else print 0
+  */
+
+  let x = userInput[0].split(' ');
+  let k = x[1]; // difference for Reference 
+  let d, d_arr = []; 
+
+  
+  x = userInput[1].split(' '); 
+  for(let i = 0; i < x.length; i++){ // array of numerical strings to array of No. 
+    x[i] = Number(x[i]); 
+  }
+  
+  for(let i = 0; i < x.length; i++){
+    d = Math.abs(x[i] - x[ (i+1) % x.length ]); // for the last element, this finds the difference between a[i] and a[0] 
+    if(d > k){
+        d_arr.push(1); 
+    }
+    else{
+        d_arr.push(0); 
+    }
+  }
+  //end-here
+  
+  console.log(d_arr.join(' '));
+  
+});
