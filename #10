@@ -1,0 +1,44 @@
+// Getting input via STDIN
+const readline = require("readline");
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+  userInput.push(data);
+});
+
+inp.on("close", () => {
+  //start-here
+  //Your code goes here … replace the below line with your code logic 
+  
+  //1. read window size, split input string into an array
+  let x = userInput[1].split(' '); 
+  let w = userInput[0].split(' ');
+  w = +w[1]; // store the numerical value of the window size
+  
+  // 2. for each element, run a loop window-size number of times to the right
+  //    push the index of 0 for each iteration
+  let zero = []; // store index of 0s
+  let zero_flag = 0; // is set to 1, if 0 is present in a window
+  for(let i = 0; i + (w-1) < x.length; i++){ // window should not overshoot the length of array
+    zero_flag = 0; // reset for each window
+    
+    for(let j = i; j < i + w; j++){ 
+        if(x[j] === '0' && zero_flag === 0){ // a zero is found for the first time in the window
+            zero.push(j+1); 
+            zero_flag = 1; 
+        }
+    }
+    if(zero_flag === 0){ // no zero in this window
+        zero.push(-1); 
+    }
+  }
+  
+  console.log(zero.join(' ')); 
+
+  //end-here
+});
