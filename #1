@@ -1,0 +1,44 @@
+// Getting input via STDIN
+const readline = require("readline");
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+  userInput.push(data);
+});
+
+inp.on("close", () => {
+  //start-here
+  //Your code goes here … replace the below line with your code logic 
+
+  var x = userInput[0]; 
+  
+  //var y = [];
+  var y = ""; 
+  
+  for(var i = 0, j = 0; i < x.length; i++){ // re adding the characters one at a time, skipping immediate duplicates
+    if(x[i] === x[i+1]){ /* digit to the immediate right is the same */
+        while(x[i] === x[i+1]){ // increment the index to the last of the duplicates
+            i++;  
+        }
+        continue; // start a afresh from the next index
+    }            
+
+    //y[j] = x[i]; 
+    //j++; // seperate indexing for the new array
+    
+    y += x[i];
+    
+  }
+  // console.log(y.join('')); 
+  if(y.length === 0)
+    console.log(-1); 
+  else
+    console.log(y);
+
+  //end-here
+});
